@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- Vue du formulaire de commande -->
     <record id="view_order_form_inherit_curtain" model="ir.ui.view">
         <field name="name">sale.order.form.curtain</field>
         <field name="model">sale.order</field>
@@ -9,18 +10,27 @@
                 <field name="is_textile_quotation"/>
                 <field name="rp_margin" invisible="not is_textile_quotation"/>
             </field>
-            <xpath expr="//field[@name='order_line']/tree//field[@name='product_template_id']" position="after">
+            <xpath expr="//notebook//field[@name='order_line']/tree/field[@name='product_id']" position="after">
                 <field name="rp_width" invisible="1"/>
                 <field name="rp_height" invisible="1"/>
                 <field name="rp_nb_curtain_on_curtain_rod"/>
                 <field name="rp_nb_same_curtain_rod"/>
             </xpath>
-            <xpath expr="//field[@name='order_line']/form//field[@name='product_template_id']" position="after">
+        </field>
+    </record>
+
+    <!-- Vue du formulaire de ligne de commande -->
+    <record id="sale_order_line_view_form_inherit_curtain" model="ir.ui.view">
+        <field name="name">sale.order.line.form.curtain</field>
+        <field name="model">sale.order.line</field>
+        <field name="inherit_id" ref="sale.sale_order_line_view_form_readonly"/>
+        <field name="arch" type="xml">
+            <field name="product_id" position="after">
                 <field name="rp_width" invisible="1"/>
                 <field name="rp_height" invisible="1"/>
                 <field name="rp_nb_curtain_on_curtain_rod"/>
                 <field name="rp_nb_same_curtain_rod"/>
-            </xpath>
+            </field>
         </field>
     </record>
 </odoo>
