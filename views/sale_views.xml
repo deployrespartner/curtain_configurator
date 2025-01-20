@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <field name="sale_order_template_id" position="after">
                 <field name="is_textile_quotation"/>
-                <field name="rp_margin" attrs="{'invisible': [('is_textile_quotation', '=', False)]}"/>
+                <field name="rp_margin" invisible="!is_textile_quotation"/>
             </field>
         </field>
     </record>
