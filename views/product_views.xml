@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_attribute_value_form_inherit_curtain" model="ir.ui.view">
+        <field name="name">product.attribute.value.form.curtain</field>
+        <field name="model">product.attribute.value</field>
+        <field name="inherit_id" ref="product.product_attribute_value_view_form"/>
+        <field name="arch" type="xml">
+            <field name="sequence" position="after">
+                <field name="rp_amplitude"/>
+                <field name="rp_curtain_width"/>
+                <field name="rp_extra_height"/>
+            </field>
+        </field>
+    </record>
+</odoo>
