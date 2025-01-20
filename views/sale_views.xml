@@ -9,20 +9,18 @@
                 <field name="is_textile_quotation"/>
                 <field name="rp_margin" invisible="not is_textile_quotation"/>
             </field>
-        </field>
-    </record>
-
-    <record id="view_order_line_form_inherit_curtain" model="ir.ui.view">
-        <field name="name">sale.order.line.form.curtain</field>
-        <field name="model">sale.order.line</field>
-        <field name="inherit_id" ref="sale.view_order_line_form"/>
-        <field name="arch" type="xml">
-            <field name="product_template_id" position="after">
+            <xpath expr="//field[@name='order_line']/tree//field[@name='product_template_id']" position="after">
                 <field name="rp_width" invisible="1"/>
                 <field name="rp_height" invisible="1"/>
                 <field name="rp_nb_curtain_on_curtain_rod"/>
                 <field name="rp_nb_same_curtain_rod"/>
-            </field>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/form//field[@name='product_template_id']" position="after">
+                <field name="rp_width" invisible="1"/>
+                <field name="rp_height" invisible="1"/>
+                <field name="rp_nb_curtain_on_curtain_rod"/>
+                <field name="rp_nb_same_curtain_rod"/>
+            </xpath>
         </field>
     </record>
 </odoo>
